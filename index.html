@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Grid</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        float: left;
+        background-size: 300px 300px;
+        background-image: url('https://t3.ftcdn.net/jpg/03/32/29/84/360_F_332298464_jGPzBdCM4LBrwL2MiAPlJCRiHTEsIVcr.jpg');
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent"></div>
+
+    <script>
+      const parent = document.getElementById('parent');
+      const N = 3;
+      const boxSize = 300 / N;
+
+      for (let i = 0; i < N * N; i++) {
+        const box = document.createElement('div');
+        box.classList.add('box');
+        box.style.backgroundPositionX = -(i % N) * boxSize + 'px';
+        box.style.backgroundPositionY = -Math.floor(i / N) * boxSize + 'px';
+        parent.appendChild(box);
+      }
+    </script>
+  </body>
+</html>
